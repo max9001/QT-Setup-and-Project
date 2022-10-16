@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.14)
 
-project(HelloWorld LANGUAGES CXX)
+project(HelloWorld2 LANGUAGES CXX)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
@@ -14,13 +14,13 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Core LinguistTools)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core LinguistTools)
 
-set(TS_FILES HelloWorld_en_US.ts)
+set(TS_FILES HelloWorld2_en_US.ts)
 
-add_executable(HelloWorld
+add_executable(HelloWorld2
   main.cpp
   ${TS_FILES}
 )
-target_link_libraries(HelloWorld Qt${QT_VERSION_MAJOR}::Core)
+target_link_libraries(HelloWorld2 Qt${QT_VERSION_MAJOR}::Core)
 
 if(COMMAND qt_create_translation)
     qt_create_translation(QM_FILES ${CMAKE_SOURCE_DIR} ${TS_FILES})
@@ -28,5 +28,5 @@ else()
     qt5_create_translation(QM_FILES ${CMAKE_SOURCE_DIR} ${TS_FILES})
 endif()
 
-install(TARGETS HelloWorld
+install(TARGETS HelloWorld2
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR})
